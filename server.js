@@ -107,9 +107,7 @@ app.get('/users', function (req, res) {
 });
 
 //Add New Product
-app.get('/insert',function (req, res) {
-    res.render('pages/insert'); 
-})
+
 app.post('/products/insert', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
