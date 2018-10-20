@@ -132,6 +132,24 @@ app.post('/products/insert', function (req, res) {
         })
 });
 
+//Delete products
+app.get('/product_delete/:pid',function (req, res) {
+    var id = req.params.pid;
+    var sql = 'DELETE FROM products';
+    if (id){
+            sql += ' where id ='+ id;
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.redirect('/products');
+    
+        })
+        .catch(function(data){
+                console.log('ERROR:'+console.error);
+                
+    })
+ });
 
 
 
