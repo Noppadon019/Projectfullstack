@@ -89,6 +89,24 @@ app.post('/product/update',function (req, res){
      console.log('UPDATE:'+ sql);
      res.redirect('/products');
 });
+// user 
+app.get('/users', function (req, res) {
+    var id = req.params.id;
+    var sql = 'select * from users';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.render('pages/users', { users: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+
+        })
+});
 
 
 
