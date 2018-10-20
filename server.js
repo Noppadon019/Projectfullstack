@@ -22,26 +22,22 @@ app.get('/about', function (req, res) {
     var bdate = '09/10/2018';
     res.render('pages/about', { fullname: name, hobbies: hobbies, bdate: bdate });
 });
+
 //Display all products
-app.get('/products', function (req, res) {
+app.get('/products', function(req, res) {
     var id = req.param('id');
-    var sql = 'select * from products';
-    if(id){
-
-        sql += ' where id = ' +id;
-    }
-
-    
-    db.any(sql, )
-        .then(function(data){
-            console.log('data' + data)
-            res.render('pages/products',{products : data});
+    var sql='select* from products';
+        if(id){
+            sql += ' where id ='+id +' order by id ASC';
+        }
+   db.any(sql+' order by id ASC')
+    .then(function(data){
+        console.log('DATA:'+data);
+        res.render('pages/products',{products: data})
         })
-        .catch(function(error){
-
-            console.log('ERROR'+ error);
-
-        })
+    .catch(function(error){
+        console.log('ERROR:'+error);
+    })
 
 });
 
