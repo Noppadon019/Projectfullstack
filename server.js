@@ -188,7 +188,17 @@ app.get('/users/:id', function (req, res) {
             console.log('ERROR' + error);
         })
 });
-
+// update user
+app.post('/users/update', function (req, res) {
+    var id = req.body.id;
+    var email = req.body.email;
+    var password = req.body.password;
+    var sql = `update users set email = '${email}',password = '${password}' where id = ${id} `;
+    ////db.none
+    db.none(sql);
+    console.log('UPDATE:' + sql);
+    res.redirect('/users');
+});
 
 
 var port = process.env.PORT || 8080;
