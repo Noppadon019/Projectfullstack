@@ -199,7 +199,24 @@ app.post('/users/update', function (req, res) {
     console.log('UPDATE:' + sql);
     res.redirect('/users');
 });
+// user delete
+app.get('/user_delete/:pid', function (req, res) {
+    var id = req.params.pid;
+    var sql = 'DELETE FROM users';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/users');
 
+        })
+        .catch(function (data) {
+            console.log('ERROR:' + console.error);
+
+        })
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
