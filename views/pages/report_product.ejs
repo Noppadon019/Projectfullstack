@@ -2,6 +2,7 @@
 <class="bg-dark">
 <div class="jumbotron">
 <h1 class="text-center">Report: Product Total </h1><br>
+<canvas id="bar-chart" width="800" height="450"></canvas>
 <table class="table ">
     <thead>
         <tr class="text-dark bg-warning">
@@ -36,9 +37,50 @@ $(document).ready(function(){
     });
   });
 });
-</script>
 
-</div>
+<%
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+ 
+var labelss=[]
+var data=[]
+var color=[]
+products.forEach(function(product) { 
+    var colors =getRandomColor()
+    labelss.push("'" + product.title + "'");
+    color.push("'" +colors + "'");
+    data.push(product.price);
+}); %>
+
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels:[<%-labelss%>], 
+      
+      datasets:[{
+          label: "๊Users",
+                backgroundColor: [<%-color%>],   
+          data:  [<%=data%>]
+        }]
+      
+     
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+</script>
 
 
   <% include ../partials/footer %>

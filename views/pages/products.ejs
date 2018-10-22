@@ -42,7 +42,19 @@ $(document).ready(function(){
   });
 });
 </script>
-</div>
 
+</div>
+<script>
+        var selectedUser = 0;
+        function deleteUser(id){
+            console.log(id);
+            selectedUser = id;
+            $('#exampleModalCenter').modal('show')
+        }
+        function confirmDelete(){
+            console.log('confirm:'+selectedUser);
+            window.location.href = '/user_delete/'+selectedUser;
+        }        
+    </script>
 
 <% include ../partials/footer %>
