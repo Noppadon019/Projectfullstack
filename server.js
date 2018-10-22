@@ -44,10 +44,11 @@ app.get('/products', function(req, res) {
 
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
+    var time = moment().format();
     var sql = "select * from products where product_id =" + pid;
     db.any(sql, )
     .then(function(data){
-        res.render('pages/product_edit',{product: data[0]});
+        res.render('pages/product_edit',{product: data[0],time:time});
     })
     .catch(function(error){
 
