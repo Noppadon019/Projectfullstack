@@ -1,8 +1,9 @@
 <% include ../partials/header %>
+<div class="jumbotron">
 <h1><center>PRODUCTS</center></h1><br>
 <table class="table">
         <thead>
-            <tr>
+            <tr class="text-white bg-secondary">
                 <th>ID</th>
                 <th>title</th>
                 <th>Price</th>
@@ -14,7 +15,7 @@
         
     <% products.forEach(function(product){ %>
     
-            <tr>
+            <tr class="bg-light text-dark">
                 <td scope="row"><%= product.product_id %></td>
                 <td><%= product.title %></td>
                 <td><%= product.price %></td>
