@@ -4,7 +4,7 @@
 <h1 class="text-center">Report: Product Total </h1><br>
 <table class="table ">
     <thead>
-        <tr class="text-info bg-dark">
+        <tr class="text-dark bg-warning">
         <th>ITEM NAME</th>
         <th>QUANTITY PURCHASED</th>
         <th>AMOUNT</th>
@@ -12,14 +12,14 @@
     </thead>
     <tbody id="myTable">
     <% products.forEach(function(product) { %>
-        <tr class="bg-info text-light">
+        <tr class="bg-primary text-light">
             <td scope="row"><%= product.title %></font></td>
             <td><%= product.quantity %></font></td>
             <td>$<%= product.price %></font></td>
         </tr>
         <% }); %>
         <% sum.forEach(function(sum) { %>
-        <tr class="bg-danger text-light">
+        <tr class="bg-success text-light">
             <td scope="row"><h5>Total</h5></td>
             <td id="quantity"><h5><%= sum.squantity %></h5></td>
             <td id="price"><h5>$<%= sum.sprice %></h5></td>

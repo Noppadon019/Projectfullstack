@@ -4,7 +4,7 @@
 <table class="table">
     <h1><center>Report: User Total Sales</center></h1><br>
     <thead>
-        <tr class="text-info bg-dark">
+        <tr class="text-dark bg-warning">
             <th>Name</th>
             <th>Email</th>
             <th>Title</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody user_id="myTable">
     <% users.forEach(function(users){ %>
-        <tr class="bg-info text-light">
+        <tr class="bg-primary text-light">
             <td scope="row"><%= users.name %></td>           
             <td><%= users.email %></td>
             <td><%= users.title %></td>
