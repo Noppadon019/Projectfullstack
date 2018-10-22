@@ -1,12 +1,13 @@
 <% include ../partials/header %>
-
+<div class="jumbotron">
+<center><h2>PROFILE</h2></center>
 <center><h1 ><%= fullname %></h1></center>
-<ul>
+<center><ul>
     <% hobbies.forEach(function(hobby) { %>
         <li><%= hobby %></li>
     <% }); %>
-</ul>
+</ul></center>
 <h3><%= bdate %></h3>
-
+</div>
         <% include ../partials/footer %>
 
