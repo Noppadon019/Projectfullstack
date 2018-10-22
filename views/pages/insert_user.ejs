@@ -1,33 +1,33 @@
 <% include ../partials/header %>
  <form action="/users/insert_user" method="post">
   <div class="form-group">
-  <label for="id">ID</label>
+  <label for="user_id">ID</label>
   <input type="number"
-    class="form-control" name="id" id="" aria-describedby="helpId" placeholder=""value="">
-  <small id="helpId" class="form-text text-muted">user ID</small>
+    class="form-control" name="user_id" user_id="" aria-describedby="helpId" placeholder=""value="">
+  <small user_id="helpId" class="form-text text-muted">user ID</small>
 </div>
 
   <div class="form-group">
     <label for="email">email</label>
     <input type="text"
-      class="form-control" name="email" id="" aria-describedby="helpId" placeholder=""value="">
-    <small id="helpId" class="form-text text-muted">user Email</small>
+      class="form-control" name="email" user_id="" aria-describedby="helpId" placeholder=""value="">
+    <small user_id="helpId" class="form-text text-muted">user Email</small>
   </div>
 
   <div class="form-group">
     <label for="password">password</label>
     <input type="text"
-      class="form-control" name="password" id="" aria-describedby="helpId" placeholder=""value="">
-    <small id="helpId" class="form-text text-muted">user Password</small>
+      class="form-control" name="password" user_id="" aria-describedby="helpId" placeholder=""value="">
+    <small user_id="helpId" class="form-text text-muted">user Password</small>
     </div>
-    
+
     <div class="form-group">
         <label for="">Time</label>
-        <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId" placeholder="" >
-        <small id="helpId" class="form-text text-muted">Time</small>
+        <input type="text" class="form-control" value="<%= time %>" name="time" user_id="" aria-describedby="helpId" placeholder="" >
+        <small user_id="helpId" class="form-text text-muted">Time</small>
       </div>
       <button type="submit" class="btn btn-success">Save</button>
-<a name="" id="" class="btn btn-secondary" href="/users" role="button">Cancel</a>
+<a name="" user_id="" class="btn btn-secondary" href="/users" role="button">Cancel</a>
   
   
 </form>

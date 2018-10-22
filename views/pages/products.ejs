@@ -7,19 +7,19 @@
                 <th>title</th>
                 <th>Price</th>
                 
-                <th><a name="" id="" class="btn btn-success" href="/insert" role="button">Add Newproduct</a></td></th>
+                <th><a name="" product_id="" class="btn btn-success" href="/insert" role="button">Add Newproduct</a></td></th>
             </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody product_id="myTable">
         
     <% products.forEach(function(product){ %>
     
             <tr>
-                <td scope="row"><%= product.id %></td>
+                <td scope="row"><%= product.product_id %></td>
                 <td><%= product.title %></td>
                 <td><%= product.price %></td>
-                <td><a  class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a>
-                <a name="" id="" class="btn btn-danger" href="/product_delete/<%=product.id %>" onclick="return confirm('Are you sure you want to delete?')" role="button">Delete</a></td>
+                <td><a  class="btn btn-primary" href="/products/<%= product.product_id %>" role="button">Edit</a>
+                <a name="" product_id="" class="btn btn-danger" href="/product_delete/<%=product.product_id %>" onclick="return confirm('Are you sure you want to delete?')" role="button">Delete</a></td>
             </tr>
            
             <tr>

@@ -26,12 +26,12 @@ app.get('/about', function (req, res) {
 
 //Display all products
 app.get('/products', function(req, res) {
-    var id = req.param('id');
+    var product_id = req.param('product_id');
     var sql='select* from products';
-        if(id){
-            sql += ' where id ='+id +' order by id ASC';
+        if(product_id){
+            sql += ' where product_id ='+product_id +' order by product_id ASC';
         }
-   db.any(sql+' order by id ASC')
+   db.any(sql+' order by product_id ASC')
     .then(function(data){
         console.log('DATA:'+data);
         res.render('pages/products',{products: data})
@@ -44,7 +44,7 @@ app.get('/products', function(req, res) {
 
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
-    var sql = "select * from products where id =" + pid;
+    var sql = "select * from products where product_id =" + pid;
     db.any(sql, )
     .then(function(data){
         res.render('pages/product_edit',{product: data[0]});
@@ -58,13 +58,13 @@ app.get('/products/:pid', function (req, res) {
 
 });
 
-app.get('/users/:id', function (req, res) {
-    var id = req.param('id');
+app.get('/users/:user_id', function (req, res) {
+    var user_id = req.param('user_id');
     var time = moment().format();
     var sql = 'select * from users';
-    if(id){
+    if(user_id){
 
-        sql += ' where id = ' +id;
+        sql += ' where user_id = ' +user_id;
     }
     db.any(sql)
         .then(function (data) {
@@ -78,10 +78,10 @@ app.get('/users/:id', function (req, res) {
 });
 //Update data
 app.post('/product/update',function (req, res){
-     var id = req.body.id;
+     var product_id = req.body.product_id;
      var title = req.body.title;
      var price = req.body.price;
-     var sql = `update products set title = '${title}',price =${price} where id =${id}`;
+     var sql = `update products set title = '${title}',price =${price} where product_id =${product_id}`;
      
      //do.none
      db.none(sql);
@@ -91,10 +91,10 @@ app.post('/product/update',function (req, res){
 
 // user 
 app.get('/users', function (req, res) {
-    var id = req.params.id;
+    var user_id = req.params.user_id;
     var sql = 'select * from users';
-    if (id) {
-        sql += ' where id =' + id;
+    if (user_id) {
+        sql += ' where user_id =' + user_id;
     }
     db.any(sql)
         .then(function (data) {
@@ -111,11 +111,11 @@ app.get('/users', function (req, res) {
 //Add New Product
 
 app.post('/products/insert', function (req, res) {
-    var id = req.body.id;
+    var product_id = req.body.product_id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `INSERT INTO products (id,title,price)
-    VALUES ('${id}', '${title}', '${price}')`;
+    var sql = `INSERT INTO products (product_id,title,price)
+    VALUES ('${product_id}', '${title}', '${price}')`;
     //db.none
     console.log('UPDATE:' + sql);
     db.any(sql)
@@ -134,10 +134,10 @@ app.get('/insert', function (req, res) {
 });
 //Delete products
 app.get('/product_delete/:pid',function (req, res) {
-    var id = req.params.pid;
+    var product_id = req.params.pid;
     var sql = 'DELETE FROM products';
-    if (id){
-            sql += ' where id ='+ id;
+    if (product_id){
+            sql += ' where product_id ='+ product_id;
     }
     db.any(sql)
         .then(function(data){
@@ -158,12 +158,12 @@ app.get('/product_delete/:pid',function (req, res) {
 
 
  app.post('/users/insert_user', function (req, res) {
-    var id = req.body.id;
+    var user_id = req.body.user_id;
     var email = req.body.email;
     var password = req.body.password;
     var time = req.body.time;
-    var sql = `INSERT INTO users (id,email,password,created_at) 
-    VALUES ('${id}', '${email}', '${password}', '${time}')`;
+    var sql = `INSERT INTO users (user_id,email,password,created_at) 
+    VALUES ('${user_id}', '${email}', '${password}', '${time}')`;
     //db.none
     console.log('UPDATE:' + sql);
     db.any(sql)
@@ -177,9 +177,9 @@ app.get('/product_delete/:pid',function (req, res) {
         })
 });
 //User_edit
-app.get('/users/:id', function (req, res) {
-    var id = req.params.id;
-    var sql = "select * from users where id =" + id;
+app.get('/users/:user_id', function (req, res) {
+    var user_id = req.params.user_id;
+    var sql = "select * from users where user_id =" + user_id;
     db.any(sql, )
         .then(function (data) {
             res.render('pages/users_edit', { user: data[0] });
@@ -191,10 +191,10 @@ app.get('/users/:id', function (req, res) {
 });
 // update user
 app.post('/users/update', function (req, res) {
-    var id = req.body.id;
+    var user_id = req.body.user_id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `update users set email = '${email}',password = '${password}' where id = ${id} `;
+    var sql = `update users set email = '${email}',password = '${password}' where user_id = ${user_id} `;
     ////db.none
     db.none(sql);
     console.log('UPDATE:' + sql);
@@ -202,10 +202,10 @@ app.post('/users/update', function (req, res) {
 });
 // user delete
 app.get('/user_delete/:pid', function (req, res) {
-    var id = req.params.pid;
+    var user_id = req.params.pid;
     var sql = 'DELETE FROM users';
-    if (id) {
-        sql += ' where id =' + id;
+    if (user_id) {
+        sql += ' where user_id =' + user_id;
     }
     db.any(sql)
         .then(function (data) {
@@ -218,6 +218,38 @@ app.get('/user_delete/:pid', function (req, res) {
 
         })
 });
+// report product
+app.get('/report_product', function (req,res) {
+ 
+    var sql ='select products.product_id,products.title,sum(purchase_items.quantity) as quantity,sum(purchase_items.price) as price from products inner join purchase_items on purchase_items.product_id=products.product_id group by products.product_id;select sum(quantity) as squantity,sum(price) as sprice from purchase_items';
+    db.multi(sql)
+    .then(function  (data) 
+    {
+ 
+        // console.log('DATA' + data);
+        res.render('pages/report_product', { products: data[0],sum: data[1]});
+    })
+    .catch(function (data) 
+    {
+        console.log('ERROR' + error);
+    })
+
+});
+// report user
+app.get('/report_user', function (req,res) {
+ 
+    var sql = 'select users.email,purchases.name,products.title,purchase_items.quantity,purchase_items.price*purchase_items.quantity as total  from users INNER JOIN purchases ON purchases.user_id = users.user_id INNER JOIN purchase_items ON purchase_items.purchase_id=purchases.purchase_id   INNER JOIN products ON products.product_id = purchase_items.product_id order by purchase_items.price*purchase_items.quantity DESC limit 25';
+    
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' +data);
+            res.render('pages/report_user', { users: data });
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+}); 
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {

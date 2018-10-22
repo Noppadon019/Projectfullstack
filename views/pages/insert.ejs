@@ -2,31 +2,31 @@
 
 <form action="/products/insert" method="post">
 <div class="form-group">
-  <label for="id">ID</label>
+  <label for="product_id">ID</label>
   <input type="number"
-    class="form-control" name="id" id="" aria-describedby="helpId" placeholder=""value="">
-  <small id="helpId" class="form-text text-muted">Product ID</small>
+    class="form-control" name="product_id" product_id="" aria-describedby="helpId" placeholder=""value="">
+  <small product_id="helpId" class="form-text text-muted">Product ID</small>
 </div>
 <div class="form-group">
     <label for="title"></label>
     <input type="text"
-      class="form-control" name="title" id="" aria-describedby="helpId" placeholder=""value="">
-    <small id="helpId" class="form-text text-muted">Title</small>
+      class="form-control" name="title" product_id="" aria-describedby="helpId" placeholder=""value="">
+    <small product_id="helpId" class="form-text text-muted">Title</small>
   </div>
 <div class="form-group">
     <label for="Price"></label>
     <input type="number"
-      class="form-control" name="price" id="" aria-describedby="helpId" placeholder=""value="">
-    <small id="helpId" class="form-text text-muted">Price</small>
+      class="form-control" name="price" product_id="" aria-describedby="helpId" placeholder=""value="">
+    <small product_id="helpId" class="form-text text-muted">Price</small>
     </div>
     <div class="form-group">
         <label for="">Time</label>
         <input type="text"
-          class="form-control" value="<%= time %>"name="price" id="" aria-describedby="helpId" placeholder="" disabled>
-        <small id="helpId" class="form-text text-muted">Price</small>
+          class="form-control" value="<%= time %>"name="price" product_id="" aria-describedby="helpId" placeholder="" disabled>
+        <small product_id="helpId" class="form-text text-muted">Price</small>
 </div>
     <button type="submit" class="btn btn-success">Save</button>
-    <a name="" id="" class="btn btn-secondary" href="/products" role="button">Cancel</a>  
+    <a name="" product_id="" class="btn btn-secondary" href="/products" role="button">Cancel</a>  
   
 </from>
 
