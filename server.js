@@ -88,6 +88,7 @@ app.post('/product/update',function (req, res){
      console.log('UPDATE:'+ sql);
      res.redirect('/products');
 });
+
 // user 
 app.get('/users', function (req, res) {
     var id = req.params.id;
